@@ -2,26 +2,15 @@ import './App.css';
 import { useState } from 'react';
 //component .jsx
 function App() {
-  const [state, setState] = useState({color: "red", name:"", log: []});
-  const onChangeHandler = (e) => {
-    const {name, value} = e.target;
-    if(name === "name") return setState({...state, [name]:value, log:[...state.log, value]})
-    setState({...state, [name]:value})
+  const [num, setNum] = useState()
+  const [logs,setLogs] = useState([])
+  const onChangeNum = (e)=>{
+    setNum(e.target.value)
+    setLogs([...logs,e.target.value])
   }
-  console.log(state)
   return (
     <div className="App">
-      <input 
-      type='color' 
-      name='color'
-      onChange={onChangeHandler} />
-      <div 
-      style={{
-        width:"100px"
-      , height:"100px"
-      , backgroundColor: state.color}}/>
-      <input name="name" onChange={onChangeHandler} value={state.name}/>
-      {state.log.map((value)=> <div> {value}</div>)}
+      <input type='text' onChange={onChangeNum}></input>
     </div>
   );
 }

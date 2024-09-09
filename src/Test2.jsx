@@ -1,14 +1,17 @@
 import { useState } from "react"
+import Log from "./components/Log"
 
 const Test2 = () =>{
-  const [state, setState] = useState({log: []})
-  const textChanger = (e) => {
-    const { value } = e.target;
-    setState({...state,log:[...state.log, value]})
+  const [txt, setTxt] = useState("")
+  const [logs,setLogs] =useState([])
+  const onChangeTxt = (e) => {
+    setTxt(e.target.value)
+    setLogs([...logs,e.target.value])
   }
   return <div>
-    <input name="text" onChange={textChanger} value={state.value}/>
-    {state.log.map((value)=> <div> {value}</div>)}
+    <input name="text" onChange={onChangeTxt}/>
+    {logs.map((str, i)=>i%2===0 && <Log i={i} str={str} />)}
+    {/* {i:1,str:"www"} */}
   </div>
   
 }
