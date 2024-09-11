@@ -4,11 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Join from './Join';
+import Form from './cutomform/Form'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Join />
+    <Form />
   </React.StrictMode>
 );
 
