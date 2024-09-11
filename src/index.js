@@ -5,11 +5,26 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Join from './Join';
 import CustomForm from './customform/CustomForm'
+import Test from './test/test'
+import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />
+    },
+    {
+      path:"/test",
+      element:<Test />
+    }
+  ]
+)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CustomForm />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
